@@ -16,7 +16,7 @@ class OportunidadeService implements OportunidadeServiceInterface
     /**
      * @var OportunidadeRepositoryInterface
      */
-    private $oportunidadeRepository
+    private $oportunidadeRepository;
 
     /**
      * OportunidadeService constructor.

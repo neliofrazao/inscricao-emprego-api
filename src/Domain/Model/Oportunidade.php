@@ -1,38 +1,48 @@
 <?php
+
 namespace Domain\Model;
 
-
-/**
- * Description of Oportunidade
- *
- * @author lab05usuario20
- */
-class Oportunidade {
+class Oportunidade
+{
     /**
      * @var int
      */
     private $idOportunidade;
-    /*
+
+    /**
      * @var string
      */
     private $descricao;
-    /*
+
+    /**
      * @var \DateTime
      */
     private $periodoInicial;
-    /*
+
+    /**
      * @var \DateTime
      */
     private $periodoFinal;
 
+    /**
+     * @var int
+     */
+    private $qtdVagas;
+
+    /**
+     * Oportunidade constructor.
+     * @param string $descricao
+     * @param \DateTime $periodoInicial
+     * @param \DateTime $periodoFinal
+     */
     public function __construct(
-        $descricao,
-        $periodoFinal,
-        $periodoInicial
+        string $descricao,
+        \DateTime $periodoInicial,
+        \DateTime $periodoFinal
     ) {
         $this->descricao = $descricao;
-        $this->periodoFinal = $periodoFinal;
         $this->periodoInicial = $periodoInicial;
+        $this->periodoFinal = $periodoFinal;
     }
 
     /**
@@ -46,16 +56,16 @@ class Oportunidade {
     /**
      * @return \DateTime
      */
-    public function getPeriodoFinal()
+    public function getPeriodoInicial()
     {
-        return $this->periodoFinal;
+        return $this->periodoInicial;
     }
 
     /**
      * @return \DateTime
      */
-    public function getPeriodoInicial()
+    public function getPeriodoFinal()
     {
-        return $this->periodoInicial;
+        return $this->periodoFinal;
     }
 }

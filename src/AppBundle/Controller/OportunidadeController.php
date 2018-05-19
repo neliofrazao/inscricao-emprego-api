@@ -21,10 +21,11 @@ class OportunidadeController extends Controller {
      */
     public function salvarAction(Request $request) {
         $serializerService = $this->get('infra.serializer.service');
-      
+        $oportunidadeService = $this->get('app.oportunidade.service');
+
         try {
             $oportunidade = $serializerService->converte($request->getContent(), Oportunidade::class);
-            dump($oportunidade); die;
+            $oportunidadeService->salvar($oportunidade);
         } catch (Exception $exc) {
             dump($exc->getTraceAsString());
             die;
