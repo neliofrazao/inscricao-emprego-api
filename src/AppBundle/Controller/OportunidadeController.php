@@ -30,5 +30,7 @@ class OportunidadeController extends Controller {
             dump($exc->getTraceAsString());
             die;
         }
+        dump('ok');
+        die;
     }
 }
