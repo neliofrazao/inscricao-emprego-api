@@ -34,6 +34,18 @@ class OportunidadeService implements OportunidadeServiceInterface
      */
     public function salvar(Oportunidade $oportunidade)
     {
+
+        if ( $this->oportunidadeRepository->findBy(['descricao' => $oportunidade->getDescricao()])){
+            throw new \Exception("Oportunidade Já existe");
+        }
         $this->oportunidadeRepository->salvar($oportunidade);
+    }
+
+    /**
+     * @return array
+     */
+    public function listarTudo()
+    {
+        return $this->oportunidadeRepository->findAll();
     }
 }

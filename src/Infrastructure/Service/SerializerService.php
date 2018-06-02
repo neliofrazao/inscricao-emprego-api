@@ -3,12 +3,6 @@ namespace Infrastructure\Service;
 use JMS\Serializer\SerializationContext;
 use JMS\Serializer\Serializer;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of SerializerService
  *
@@ -26,18 +20,32 @@ class SerializerService {
     public function __construct(Serializer $serializer) {
         $this->serializer = $serializer;
     }
-    
+
+    /**
+     * @param $json
+     * @param $tipo
+     * @return array|\JMS\Serializer\scalar|mixed|object
+     */
     public function converte($json, $tipo) {
 
-        return $this->serializer->deserialize($json, $tipo, 'json');
-        
-        // try {
-        //     return $this->serializer->deserialize($json, $tipo, 'json');
-        // } catch (Exception $exc) {
-        //     dump($request->re);
-        //     die;
-        //     echo $exc->getTraceAsString();
-        // }
+         try {
+             return $this->serializer->deserialize($json, $tipo, 'json');
+         }catch (\Exception $exception){
+             dump($exception->getMessage()); die;
+         }
+    }
+
+    /**
+     * @param $data
+     * @param array $groups
+     * @return mixed|string
+     */
+    public function toJsonByGroups($data, array $groups = ['default']){
+        return $this->serializer->serialize(
+            $data,
+            'json',
+            SerializationContext::create()->setGroups($groups)
+        );
     }
 }
 
