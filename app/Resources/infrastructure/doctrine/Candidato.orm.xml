@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="Domain\Model\Candidato"
+            table="candidato">
+        <id name="idCandidato" type="integer" column="id">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="nome" type="string" column="nome"/>
+        <field name="email" type="string" column="email"/>
+        <field name="curriculo" type="string" column="curriculo"/>
+        <field name="telefone" type="string" column="telefone"/>
+    </entity>
+</doctrine-mapping>
