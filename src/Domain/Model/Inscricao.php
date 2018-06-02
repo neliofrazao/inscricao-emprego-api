@@ -1,10 +1,5 @@
 <?php
 namespace Domain\Model;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of Inscricao
@@ -12,5 +7,24 @@ namespace Domain\Model;
  * @author nelioFrazao
  */
 class Inscricao {
-    //put your code here
+    /**
+     * @var int
+     */
+    private $idInscricao;
+    /**
+     * @var Candidato
+     */
+    private $candidato;
+    /**
+     * @var Oportunidade
+     */
+    private $oportunidade;
+    /**
+     * @var string
+     */
+    private $codigoConfirmacao;
+    /**
+     * @var boolean
+     */
+    private $ativa;
 }
